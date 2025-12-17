@@ -9,6 +9,7 @@ class Launch_website_application:
 
     def load(self,url):
         self.driver.get(url)
+        print("Website launched successfully")
         time.sleep(4)
 
 
