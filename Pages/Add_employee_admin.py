@@ -32,11 +32,11 @@ class Add_employee_admin:
         emp_input = wait.until(EC.element_to_be_clickable(
         (By.XPATH, "//div[./div/label[text()='Employee Name']]//input")
         ))
-        emp_input.send_keys("Alice")  # partial name
+        emp_input.send_keys(credentials.usernames)  # partial name
 
         # Wait for suggestion list to appear and click correct suggestion
         suggestion = wait.until(EC.element_to_be_clickable(
-        (By.XPATH, "//div[@role='option']//span[contains(text(),'Alice')]")
+        (By.XPATH, "//div[@role='option']//span[contains(text(),'he')]")
             ))
         suggestion.click()
         time.sleep(2)
@@ -48,4 +48,20 @@ class Add_employee_admin:
         status_option = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[@role='listbox']//span[normalize-space()='Enabled']")))
         status_option.click()
         time.sleep(2)
+
+        # — Username field ---------------------------------> 
+
+        username_field = self.driver.find_element(By.XPATH, "//label[text()='Username']/following::input")
+        username_field.send_keys(first_name.lower() + emp_id)
+
        #//div[@role='listbox']//span[normalize-space()='Enabled']
+        password_field = self.driver.find_element(By.XPATH, "//label[text()='Password']/following::input")
+        password_field.send_keys(last_name + first_name.lower() + emp_id)
+       # ------------------ Confirm Password field ----------------->
+        confirm_password_field = self.driver.find_element(By.XPATH, "//label[text()='Confirm Password']/following::input")
+        confirm_password_field.send_keys(last_name +first_name.lower()+ emp_id)
+       # ------------------ Click Save button ----------------->
+        time.sleep(2)
+        save_button = self.driver.find_element(By.XPATH, "//button[contains(@class,'oxd-button--secondary') and normalize-space()='Save']")
+        save_button.click()
+        time.sleep(5)
