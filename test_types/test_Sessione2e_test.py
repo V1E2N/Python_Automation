@@ -15,8 +15,7 @@ def test_start_the_application(launch_browser):
     print("Website launched successfully")
 
 @pytest.mark.regression
-@pytest.mark.sanity
-@pytest.mark.smoke  
+@pytest.mark.additional
 def test_login_to_application(launch_browser):
     try:
         login_page = login(launch_browser)
@@ -36,6 +35,7 @@ def test_login_to_application(launch_browser):
         print("Login test completed")
 
 @pytest.mark.regression
+
 def test_navigate_to_admin_section(launch_browser):
     launch = Add_employee_admin(launch_browser)
     launch.add_employee(credentials.username, credentials.password, credentials.emp_id)
