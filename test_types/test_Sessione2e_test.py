@@ -5,6 +5,7 @@ from Pages.Launch_website_application import Launch_website_application
 from credentails import credentials
 from Pages.login import Login as login
 from Pages.Add_employee_admin import Add_employee_admin
+from Pages.leave_list import Leave_list 
 global launch_browser
 @pytest.mark.regression
 @pytest.mark.smoke
@@ -44,6 +45,9 @@ def test_navigate_to_admin_section(launch_browser):
     assert "Admin" in launch_browser.page_source
     time.sleep(10)
 
+def leave_list(launch_browser):
+    # Placeholder for leave list test
+  
 
     
 
