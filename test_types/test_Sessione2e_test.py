@@ -1,4 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import pytest
 import time
 from Pages.Launch_website_application import Launch_website_application
@@ -66,6 +69,7 @@ def test_leave_list(launch_browser):
     #placeholder for logout test
 def test_logout(launch_browser):
     try:
+        wait = WebDriverWait(launch_browser, 10)
         # Click on user dropdown
         user_dropdown = wait.until(EC.element_to_be_clickable((By.XPATH, "//p[@class='oxd-userdropdown-name']")))
         user_dropdown.click()
