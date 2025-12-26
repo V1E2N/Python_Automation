@@ -66,6 +66,7 @@ def test_leave_list(launch_browser):
     print("Leave List filtered by date successfully")
 
 @pytest.mark.regression
+@pytest.mark.smoke
     #placeholder for logout test
 def test_logout(launch_browser):
     try:
